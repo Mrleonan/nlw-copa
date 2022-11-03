@@ -9,6 +9,8 @@ ul {
 body {
   background-color: #121214;
   background-image: url(./assets/bg.svg);
+  background-position-x: center;
+  background-position-y: -715px;
 } 
 body * {
   font-family: 'Roboto', sans-serif;
@@ -20,9 +22,16 @@ body * {
 }
 
 header {
-  margin-bottom: 63px
+  margin-bottom: 63px;
+  text-align: center;
+}
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 .card {
+
   background: #202024;
   border-bottom: 2px solid #338AF3;
   border-radius: 6px;

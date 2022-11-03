@@ -3,14 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --card-color-primary: #fcfc07;
+  --card-color-border-date: #1b9814;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-yellow.svg)
+}
+
+.blue {
+  --card-color-primary: #338AF3;
+  --card-color-border-date: #338AF3;
+  --card-bg-color: #131327;
+  --bg: url(./assets/bg-blue.svg)
+}
+.green {
+  --card-color-primary: #49e706;
+  --card-color-border-date: #2eba08;
+  --card-bg-color: #262505;
+  --bg: url(./assets/bg-green.svg)
+}
 ul {
   list-style: none;
 }
 body {
-  background-color: #121214;
-  background-image: url(./assets/bg.svg);
-  background-position-x: center;
-  background-position-y: -715px;
+  background: #121214 var(--bg) no-repeat top center/cover
 } 
 body * {
   font-family: 'Roboto', sans-serif;
@@ -18,7 +34,8 @@ body * {
 }
 #app {
   width: fit-content;
-  margin: 52px auto;
+  margin: auto;
+  padding-top: 52px;
 }
 
 header {
@@ -32,8 +49,8 @@ header {
 }
 .card {
 
-  background: #202024;
-  border-bottom: 2px solid #338AF3;
+  background: var(--card-bg-color);
+  border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
   padding: 32px 23px;
   text-align: center;
@@ -45,15 +62,16 @@ header {
   align-items: center;
 
   padding: 8px 16px;
-  border: 1px solid #338AF3;
+  border: 1px solid var(--card-color-border-date);
   border-radius: 6px;
 
   width: fit-content;
   margin-inline: auto;
   margin-bottom: 53px;
   
-  color:#F7DD43
+  color: var(--card-color-primary);
 }
+
 .card h2 span {
   color: #E1E1E6;
   font-size: 14px;
@@ -84,4 +102,40 @@ header {
   font-size: 36px;
   line-height: 125%;
   color: #E1E1E6;
+}
+.card h2:hover,
+.card ul li strong:hover, 
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: transform 0.3s;
+}
+
+.card {
+  opacity: 0;
+  animation: appear 3s forwards;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-3  px);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  #cards {
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
